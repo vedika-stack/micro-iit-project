@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Times New Roman, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: Black;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        h1 {
+            color: #222;
+        }
+        h2 {
+            color: #444;
+        }
+        p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            height: 50px;
+            font-size: 22px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        button {
+            width: 100%;
+            height: 50px;
+            font-size: 18px;
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e07b00;
+        }
+        .operator {
+            background-color: #007bff;
+        }
+        .operator:hover {
+            background-color: #0056b3;
+        }
+        .clear {
+            background-color: red;
+        }
+        .clear:hover {
+            background-color: darkred;
+        }
+        .equal {
+            background-color: green;
+        }
+        .equal:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simple Calculator</h1>
+    <h2>Welcome to the Online Calculator!</h2>
+    <p>Use this calculator as much as you want, free of charge!</p>
+
+    <div class="container">
+        <input type="text" id="display" disabled>
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button class="operator" onclick="appendValue('/')">/</button>
+            
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button class="operator" onclick="appendValue('*')">x</button>
+
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button class="operator" onclick="appendValue('-')">-</button>
+
+            <button onclick="appendValue('0')">0</button>
+            <button class="operator" onclick="appendValue('+')">+</button>
+            <button onclick="calculateResult()" class="equal">=</button>
+            <button class="operator" onclick="calculateSqrt()">√</button>
+        </div>
+    </div>
+
+    <script>
+        function appendValue(value) {
+            document.getElementById("display").value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+
+        function calculateResult() {
+            try {
+                document.getElementById("display").value = eval(document.getElementById("display").value);
+            } catch (e) {
+                alert("Invalid Expression");
+            }
+        }
+
+        function calculateSqrt() {
+            let value = document.getElementById("display").value;
+            if (value >= 0) {
+                document.getElementById("display").value = Math.sqrt(value);
+            } else {
+                alert("Cannot calculate square root of a negative number!");
+            }
+        }
+    </script>
+
+</body>
+</html>
+
