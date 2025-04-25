@@ -1,3 +1,4 @@
+# micro-iit-project
 Overview
 This is a basic web-based calculator that performs simple arithmetic operations like addition, subtraction, multiplication, and division. It is designed with a clean UI and smooth functionality, making it user-friendly and responsive.
 
@@ -52,4 +53,4 @@ Type a task in the input box and click "Add" to add it to the list.
 
 Click on a task to mark it as complete.
 
-Press the delete button to remove a task.# micro-iit-project
+Press the delete button to remove a task.
